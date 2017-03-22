@@ -1,7 +1,7 @@
 PersonApp = Ember.Application.create();
 
 PersonApp.PersonView = Ember.View.extend({
-    templateName: 'person',
+    templateName: 'person', //use the template found in index.html (line 14)
     addPerson: function(event) {
         var username = this.get('username');
         if (username) {
