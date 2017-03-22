@@ -2,10 +2,6 @@ PersonApp = Ember.Application.create();
 
 PersonApp.PersonView = Ember.View.extend({
     templateName: 'person',
-    count: function() {
-        var people = this.get('model');
-        return people.get('length');
-    }.property('model.@each'),
     addPerson: function(event) {
         var username = this.get('username');
         if (username) {
@@ -16,6 +12,10 @@ PersonApp.PersonView = Ember.View.extend({
 });
 
 PersonApp.PersonController = Ember.ArrayController.extend({
+    count: function() {
+        var people = this.get('model');
+        return people.get('length');
+    }.property('model.@each'),
     addPerson: function(username) {
         var newPerson = PersonApp.Person.create({username: username});
         this.get('model').pushObject(newPerson);
